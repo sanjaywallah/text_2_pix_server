@@ -1,4 +1,4 @@
-class MemesConstroller < ApplicationController
+class MemesController < ApplicationController
   def index
     @memes = Meme.all.order(:created_at)
 
@@ -21,5 +21,5 @@ class MemesConstroller < ApplicationController
   def meme_params
     params.require(:meme).permit(:text, :img_url)
   end
-  
+
 end
