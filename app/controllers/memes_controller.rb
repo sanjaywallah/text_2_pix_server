@@ -7,8 +7,7 @@ class MemesController < ApplicationController
 
   def show
     @meme = Meme.find(params[:id])
-
-    render json: @meme
+   render :json => @meme.to_json(:include => :comments) 
   end
 
   def create
