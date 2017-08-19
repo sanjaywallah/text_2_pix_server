@@ -17,6 +17,20 @@ class MemesController < ApplicationController
     render json: @meme
   end
 
+  def update
+    @meme = Meme.find(params[:id])
+    @meme.update!(meme_params)
+
+    render json: @meme
+  end
+
+  def destroy
+    @meme = Meme.find(params[:id])
+    @meme.destroy
+
+    render nothing: true
+  end
+
   private
   def meme_params
     params.require(:meme).permit(:text, :img_url)
