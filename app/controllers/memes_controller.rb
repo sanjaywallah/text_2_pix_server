@@ -26,6 +26,7 @@ class MemesController < ApplicationController
   def destroy
     @meme = Meme.find(params[:id])
     @meme.destroy
+
   end
 
   private
