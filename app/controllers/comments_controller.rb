@@ -1,10 +1,16 @@
 class CommentsController < ApplicationController
   def index
-    @meme = Meme.find(params[:meme_id])
-    @comments = @meme.comments.order(:created_at)
+    @comments = Comment.all
+
 
     render json: @comments
   end
+
+  def show
+    @comment = Comment.find(params[:id])
+   render json: @comment
+  end
+
   def create
     @meme = Meme.find(params[:meme_id])
     @comment = @meme.comments.create!(comment_params)
