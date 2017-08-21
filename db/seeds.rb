@@ -5,7 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require('httparty')
 
-first_meme = Meme.create(text: "test", img_url: "http://xiostorage.com/wp-content/uploads/2015/10/test.png")
+Meme.delete_all
+Comment.delete_all
+
+
+
+
+def photo
+  JSON.parse(HTTParty.get("http://www.splashbase.co/api/v1/images/random?images_only=true").body)["url"]
+end
+
+
+first_meme = Meme.create(text: "test", img_url: photo)
 
 first_meme.comments.create(text: "comment")
+first_meme.comments.create(text: "another comment")
