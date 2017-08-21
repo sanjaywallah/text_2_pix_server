@@ -6,4 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Meme.create(text: "test", img_url: "http://xiostorage.com/wp-content/uploads/2015/10/test.png")
+first_meme = Meme.create(text: "test", img_url: "http://xiostorage.com/wp-content/uploads/2015/10/test.png")
+
+first_meme.comments.create(text: "comment")
